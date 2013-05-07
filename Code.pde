@@ -14,6 +14,7 @@ ArrayList<Tag> stored = new ArrayList<Tag>();
 void setup() {
   size(width, height);
   colorMode(HSB, 360);
+  //test
   hsbChart = loadImage("wheel.jpg");
   frameRate(25);
   setupTags();

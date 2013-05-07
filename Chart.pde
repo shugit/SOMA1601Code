@@ -11,7 +11,7 @@ class Chart {
       colorMode(HSB,100);
       fill(i,100,100);
       noStroke();
-      rect(0,c,750,r);
+      rect(0,c,width,r);
     }
     textAlign(CENTER,CENTER);
     textSize(100);

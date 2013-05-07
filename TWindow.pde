@@ -14,8 +14,6 @@ class TWindow {
     fill(white);
 
     text("Stored tags", width*0.3, width * 0.05+20);
-    //fill(255);
-    //println("stored size is "+stored.size());
     for (int i = 0; i < stored.size(); i++) {
       //println("i is " + count);
       Tag a = stored.get(i);

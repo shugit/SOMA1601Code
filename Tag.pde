@@ -1,5 +1,10 @@
 import ddf.minim.*;
 
+
+/*
+* just a fake OOP
+*/
+
 class Tag{
   public Tag(String aFilename){
     println(aFilename);

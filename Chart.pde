@@ -1,13 +1,23 @@
 class Chart {
 
   void run() {
+    // the image
     image(hsbChart, 0, 0);
-    fill(200,124,124);
-    noStroke();
-    rect(0,750,750,950);
-    textSize(50);
-    fill(0);
-    text("Tags",100,800);
+    //the button
+    rectMode(CORNER);
+    for(int i = 0; i<=100 ; i++){
+      float r = map(i,0,100,0,width);
+      float c = map(i,0,100,width,height);
+      colorMode(HSB,100);
+      fill(i,100,100);
+      noStroke();
+      rect(0,c,750,r);
+    }
+    textAlign(CENTER,CENTER);
+    textSize(100);
+    colorMode(RGB,255);
+    fill(white);
+    text("Tags",width*0.5,width+0.5*(abs(width-height)));
   }
 
   int getColor() {

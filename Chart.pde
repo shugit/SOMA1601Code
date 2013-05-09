@@ -1,9 +1,9 @@
 class Chart {
 
   void run() {
-    // the image
+    // load the image
     image(hsbChart, 0, 0);
-    //the button
+    //draw the button
     rectMode(CORNER);
     for(int i = 0; i<=100 ; i++){
       float r = map(i,0,100,0,width);
@@ -11,10 +11,10 @@ class Chart {
       colorMode(HSB,100);
       fill(i,100,100);
       noStroke();
-      rect(0,c,width,r);
+      rect(0,c,width,r,width/2);
     }
     textAlign(CENTER,CENTER);
-    textSize(100);
+    textFont(buttonFont,100);
     colorMode(RGB,255);
     fill(white);
     text("Tags",width*0.5,width+0.5*(abs(width-height)));

@@ -26,6 +26,8 @@ Chart chartWindow = new Chart();
 TWindow tagWindow = new TWindow();
 ArrayList<Tag> stored = new ArrayList<Tag>();
 Tag currentSong = null;
+PFont font = createFont("Adobe Fan Heiti Std B", 48);
+PFont buttonFont = createFont("Algerian Regular",48);
 
 /*
 * useful colors
@@ -40,8 +42,6 @@ color black = color(0, 0, 0);
 /*
 * only run at first
  */
-
-
 void setup() {
   size(width, height);
   hsbChart = loadImage("wheel.jpg");
@@ -51,25 +51,23 @@ void setup() {
 /*
 * run every frame
  */
-
 void draw() {
   if (!inTag) { //not in tags window
     chartWindow.run();
-
-    if (currentSong != null) {
+    
+    if (currentSong != null) { //display song's name
       fill(lightOrange);
       rectMode(CENTER);
-      rect(width*0.5, height*0.1+25, width*0.9, 45);
-      textSize(25);
+      rect(width*0.5, height*0.1+25, width*0.9, 45,10);
+      textFont(font,25);
       fill(white);
       text(currentSong.title, width*0.5, height*0.1+15);
-      textSize(14);
+      textFont(font,14);
       text("by "+currentSong.artist, width*0.55, height*0.1+35);
     }
   } 
 
   else { //in tags window
-    //println("running tagwindow");
     tagWindow.run();
   }
 }
@@ -80,14 +78,14 @@ void draw() {
  **/
 void setupTags() {
   tags = new ArrayList<Tag>(); 
-  for (int i = 1; i<=15;i++) {
+  for (int i = 1; i<=15 ; i++) {
     tags.add(new Tag(i+".mp3"));
   }
 }
 
 /*
 * called when mouse released
- * it self will determine what to show
+ * it self will determine what to show based on inTag windows or not
  */
 void mouseReleased() { 
   if (!inTag) { 
@@ -97,13 +95,11 @@ void mouseReleased() {
     } 
     else {
       inTag = true;
-      //println("IN TAG");
     }
   } 
   else {
     if (mouseY >= width) {
       inTag = false;
-      //println("NOT IN TAG");
     }
   }
 }

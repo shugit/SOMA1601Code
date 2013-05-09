@@ -26,8 +26,8 @@ Chart chartWindow = new Chart();
 TWindow tagWindow = new TWindow();
 ArrayList<Tag> stored = new ArrayList<Tag>();
 Tag currentSong = null;
-PFont font = createFont("Adobe Fan Heiti Std B", 48);
-PFont buttonFont = createFont("Algerian Regular",48);
+PFont font;
+PFont buttonFont;
 
 /*
 * useful colors
@@ -45,7 +45,10 @@ color black = color(0, 0, 0);
 void setup() {
   size(width, height);
   hsbChart = loadImage("wheel.jpg");
+  font = loadFont("Tahoma-Bold-50.vlw");
+  buttonFont = loadFont("Shruti-Bold-100.vlw");
   setupTags();
+
 }
 
 /*

@@ -57,16 +57,18 @@ void setup() {
 void draw() {
   if (!inTag) { //not in tags window
     chartWindow.run();
-    
-    if (currentSong != null) { //display song's name
-      fill(lightOrange);
+    fill(lightOrange);
       rectMode(CENTER);
       rect(width*0.5, height*0.1+25, width*0.9, 45,10);
       textFont(font,25);
       fill(white);
+    if (currentSong != null) { //display song's name
+      
       text(currentSong.title, width*0.5, height*0.1+15);
       textFont(font,14);
       text("by "+currentSong.artist, width*0.55, height*0.1+35);
+    } else {
+      text("click one this image to listen to corresponding audio", width*0.5, height*0.1+25);
     }
   } 
 
@@ -100,9 +102,12 @@ void mouseReleased() {
       inTag = true;
     }
   } 
-  else {
+  else { //inTag window
     if (mouseY >= width) {
       inTag = false;
+    }
+    if( mouseX > width*0.7 && mouseY > width*0.05 && mouseY < width*0.15){
+      stored.clear();
     }
   }
 }

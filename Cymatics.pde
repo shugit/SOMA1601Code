@@ -48,7 +48,6 @@ void setup() {
   font = loadFont("Tahoma-Bold-50.vlw");
   buttonFont = loadFont("Shruti-Bold-100.vlw");
   setupTags();
-
 }
 
 /*
@@ -58,16 +57,17 @@ void draw() {
   if (!inTag) { //not in tags window
     chartWindow.run();
     fill(lightOrange);
-      rectMode(CENTER);
-      rect(width*0.5, height*0.1+25, width*0.9, 45,10);
-      textFont(font,25);
-      fill(white);
+    rectMode(CENTER);
+    rect(width*0.5, height*0.1+25, width*0.9, 45, 10);
+    textFont(font, 25);
+    fill(white);
     if (currentSong != null) { //display song's name
-      
+
       text(currentSong.title, width*0.5, height*0.1+15);
-      textFont(font,14);
+      textFont(font, 14);
       text("by "+currentSong.artist, width*0.55, height*0.1+35);
-    } else {
+    } 
+    else {
       text("click one this image to listen to corresponding audio", width*0.5, height*0.1+25);
     }
   } 
@@ -106,8 +106,15 @@ void mouseReleased() {
     if (mouseY >= width) {
       inTag = false;
     }
-    if( mouseX > width*0.7 && mouseY > width*0.05 && mouseY < width*0.15){
+    if ( mouseX > width*0.7 && mouseY > width*0.05 && mouseY < width*0.15) {
       stored.clear();
+    }
+    if (mouseX > width*0.05 && mouseX < width*0.95){
+      for (int i = 0; i < stored.size(); i++) {
+        if(mouseY > height*0.1 + i*50+25 - 45*0.5 && mouseY < height*0.1 + i*50+25 + 45*0.5){
+          playSound(tags.indexOf(stored.get(i))+1);
+        }
+      }
     }
   }
 }

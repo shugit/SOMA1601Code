@@ -5,23 +5,23 @@ class Chart {
     image(hsbChart, 0, 0);
     //draw the button
     rectMode(CORNER);
-    for(int i = 0; i<=100 ; i++){
-      float r = map(i,0,100,0,width);
-      float c = map(i,0,100,width,height);
-      colorMode(HSB,100);
-      fill(i,100,100);
+    for (int i = 0; i<=100 ; i++) {
+      float r = map(i, 0, 100, 0, width);
+      float c = map(i, 0, 100, width, height);
+      colorMode(HSB, 100);
+      fill(i, 100, 100);
       noStroke();
-      rect(0,c,width,r,width/2);
+      rect(0, c, width, r, width/2);
     }
-    textAlign(CENTER,CENTER);
-    textFont(buttonFont,100);
-    colorMode(RGB,255);
+    textAlign(CENTER, CENTER);
+    textFont(buttonFont, 100);
+    colorMode(RGB, 255);
     fill(white);
-    text("Tags",width*0.5,width+0.5*(abs(width-height)));
+    text("Tags", width*0.5, width+0.5*(abs(width-height)));
   }
 
   int getColor() {
-    colorMode(HSB,360);
+    colorMode(HSB, 360);
     color co = get(mouseX, mouseY);
     float hue = hue(co);
     String s = "";
@@ -94,6 +94,5 @@ class Chart {
     println(s+" hue = "+hue+" saturation="+saturation(co)+" bright="+brightness(co));
     return c;
   }
-
 }
 

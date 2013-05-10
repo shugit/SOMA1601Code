@@ -15,9 +15,7 @@ class TWindow {
     text("Stored tags", width*0.3, width * 0.05+20);
     // clear button    
     if ( (mouseX > (width*0.9-60)) && (mouseX < (width*0.9+60)) && 
-        (mouseY > (width*0.1-30)) && (mouseY < (width*0.1+30)) ) { //mouse Over clear button
-   // if ( (mouseX > (645)) && (mouseX < (900)) && 
-     //   (mouseY > (50)) && (mouseY < (100)) ) {
+      (mouseY > (width*0.1-30)) && (mouseY < (width*0.1+30)) ) { //mouse Over clear button
       rectMode(RADIUS);
       colorMode(RGB, 255);
       fill(white);
@@ -51,6 +49,24 @@ class TWindow {
       text(a.title, width*0.5, height*0.1+i * 50+15);
       textSize(14);
       text("by "+a.artist, width*0.55, height*0.1+i*50+35);
+    }
+    
+    if (mouseX > width*0.05 && mouseX < width*0.95){ // mouse Over
+      for (int i = 0; i < stored.size(); i++) {
+        if(mouseY > height*0.1 + i*50+25 - 45*0.5 && mouseY < height*0.1 + i*50+25 + 45*0.5){
+          rectMode(CENTER);
+          fill(white);
+          rect(width*0.5, height*0.1 + i * 50 +25, width*0.9+4, 48, 10);
+          fill(lightOrange);
+          rect(width*0.5, height*0.1 + i * 50 +25, width*0.9-10, 45-10, 10);
+          textFont(font, 25);
+          fill(lightBlue);
+          Tag a = stored.get(i);
+          text(a.title, width*0.5, height*0.1+i * 50+15);
+          textSize(14);
+          text("by "+a.artist, width*0.55, height*0.1+i*50+35);
+        }
+      }
     }
 
 
